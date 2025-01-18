@@ -1,0 +1,296 @@
+{
+    "Történelem": [
+        {
+            "Kérdés": "Miért volt fontos a honfoglalás a magyar nép számára?",
+            "Válasz": "Mert ekkor foglalták el a Kárpát-medencét, ami az otthonuk lett"
+        },
+        {
+            "Kérdés": "Miért emlékezünk meg az 1848-as forradalomról?",
+            "Válasz": "Mert ez volt a magyar szabadságért és függetlenségért vívott küzdelem kezdete"
+        },
+        {
+            "Kérdés": "Mit jelentett a Magna Charta aláírása Angliában?",
+            "Válasz": "A király hatalmát korlátozó törvényt fogadtak el"
+        },
+        {
+            "Kérdés": "Ki vezette a magyarokat a honfoglaláskor?",
+            "Válasz": "Árpád vezér"
+        },
+        {
+            "Kérdés": "Melyik évben történt az 1848-as forradalom Magyarországon?",
+            "Válasz": "1848-ban"
+        },
+        {
+            "Kérdés": "Mi volt a legfontosabb esemény 1492-ben a világ történelmében?",
+            "Válasz": "Amerika felfedezése Kolumbusz Kristóf által"
+        },
+        {
+            "Kérdés": "Miért nevezik Mátyás királyt igazságosnak?",
+            "Válasz": "Mert igazságosan ítélt meg mindenkit, és támogatta a szegényeket"
+        },
+        {
+            "Kérdés": "Miért volt jelentős Szent István koronázása?",
+            "Válasz": "Mert ezzel Magyarország keresztény királyság lett"
+        },
+        {
+            "Kérdés": "Miért fontos az ókori Róma jogrendszere?",
+            "Válasz": "Mert sok modern jogrendszer alapját képezi"
+        }
+    ],
+    "Földrajz": [
+        {
+            "Kérdés": "Miért nevezik Magyarországot a \"vizek országának\"?",
+            "Válasz": "Mert sok folyója és tava van, például a Duna és a Balaton"
+        },
+        {
+            "Kérdés": "Miért fontos a Földön az Amazonas esőerdő?",
+            "Válasz": "Mert az oxigéntermelése miatt a \"Föld tüdejeként\" emlegetik"
+        },
+        {
+            "Kérdés": "Hogyan keletkeznek a hegyek?",
+            "Válasz": "A földkéreg lemezeinek ütközésekor emelkednek ki"
+        },
+        {
+            "Kérdés": "Mi a legnagyobb ország terület alapján a világon?",
+            "Válasz": "Oroszország"
+        },
+        {
+            "Kérdés": "Melyik hegységben található Magyarország legmagasabb csúcsa?",
+            "Válasz": "A Mátrában, a Kékestető"
+        },
+        {
+            "Kérdés": "Melyik kontinensen található Egyiptom?",
+            "Válasz": "Afrikában"
+        },
+        {
+            "Kérdés": "Melyik folyó folyik keresztül Budapesten?",
+            "Válasz": "A Duna"
+        },
+        {
+            "Kérdés": "Miért nevezik a Balatont \"Magyar Tengernek\"?",
+            "Válasz": "Mert ez Magyarország legnagyobb tava, és sokan nyaralnak ott"
+        },
+        {
+            "Kérdés": "Milyen időjárás jellemző az egyenlítői éghajlatra?",
+            "Válasz": "Meleg és esős"
+        }
+    ],
+    "Tudomány": [
+        {
+            "Kérdés": "Miért fontosak a méhek a természetben?",
+            "Válasz": "Mert beporozzák a növényeket, és így segítik az élelmiszer-termelést"
+        },
+        {
+            "Kérdés": "Mi a gravitáció szerepe a Földön?",
+            "Válasz": "A gravitáció tart minket a Földön, és segít minden tárgyat a helyén tartani"
+        },
+        {
+            "Kérdés": "Mitől kék az ég?",
+            "Válasz": "A Nap fénye szóródik a légkörben, és a kék fényt látjuk leginkább"
+        },
+        {
+            "Kérdés": "Mi a Föld légkörének legnagyobb részét alkotó gáz?",
+            "Válasz": "A nitrogén"
+        },
+        {
+            "Kérdés": "Mit mérünk kilogrammban?",
+            "Válasz": "A tömeget"
+        },
+        {
+            "Kérdés": "Mi történik, amikor a víz 0°C alá hűl?",
+            "Válasz": "Megfagy, és jéggé válik"
+        },
+        {
+            "Kérdés": "Miért fontos a Nap a Földön élők számára?",
+            "Válasz": "Mert fényt és hőt ad, ami nélkülözhetetlen az élethez"
+        },
+        {
+            "Kérdés": "Hogyan hat a légszennyezés a bolygónkra?",
+            "Válasz": "Rontja a levegő minőségét és hozzájárul a globális felmelegedéshez"
+        },
+        {
+            "Kérdés": "Miért folyik az elektromos áram a vezetékekben?",
+            "Válasz": "Mert a vezetékek anyaga, például a réz, jól vezeti az áramot"
+        }
+    ],
+    "Technológia": [
+        {
+            "Kérdés": "Miért fontosak az algoritmusok a számítógépek számára?",
+            "Válasz": "Mert pontos utasításokat adnak a feladatok megoldására"
+        },
+        {
+            "Kérdés": "Hogyan használjuk a robotokat a mindennapokban?",
+            "Válasz": "Például takarításra, gyártásra vagy orvosi műtéteknél"
+        },
+        {
+            "Kérdés": " Mi a különbség a hardver és a szoftver között?",
+            "Válasz": "A hardver a számítógép kézzelfogható része, míg a szoftver a programok összessége"
+        },
+        {
+            "Kérdés": "Mit jelent az „internet”?",
+            "Válasz": "Egy globális számítógépes hálózatot"
+        },
+        {
+            "Kérdés": "Mire használják a billentyűzetet egy számítógépen?",
+            "Válasz": "Adatok bevitelére"
+        },
+        {
+            "Kérdés": "Mi a Wi-Fi?",
+            "Válasz": "Vezeték nélküli internetkapcsolat"
+        },
+        {
+            "Kérdés": "Miért fontosak a jelszavak az interneten?",
+            "Válasz": "Mert megvédik a személyes adatainkat és fiókjainkat"
+        },
+        {
+            "Kérdés": "Hogyan működik egy okostelefon?",
+            "Válasz": "Egy miniszámítógépként, amely érintőképernyővel kezelhető"
+        },
+        {
+            "Kérdés": "Mi a különbség az online és offline mód között?",
+            "Válasz": "Online módnál csatlakozunk az internethez, offline-nál nem"
+        }
+    ],
+    "Matematika": [
+        {
+            "Kérdés": "Mi a legkisebb prímszám?",
+            "Válasz": "2"
+        },
+        {
+            "Kérdés": "Mi az összefüggés a négyzet és a négyzetgyök között?",
+            "Válasz": "A négyzetgyök a számnak az a pozitív értéke, amelynek a négyzetére számolva az adott számot kapjuk"
+        },
+        {
+            "Kérdés": "Mi a kerülete egy négyzetnek, ha az oldalhossza 5 cm?",
+            "Válasz": "20 cm (4 × 5 cm)"
+        },
+        {
+            "Kérdés": "Hogyan számoljuk ki egy háromszög területét?",
+            "Válasz": "A területet úgy számoljuk, hogy az alapot megszorozzuk a magassággal, majd elosztjuk kettővel"
+        },
+        {
+            "Kérdés": "Milyen számot kapunk, ha a 15-öt elosztjuk 3-mal?",
+            "Válasz": "5"
+        },
+        {
+            "Kérdés": "Mi a legnagyobb közös osztója a 12-nek és a 18-nak?",
+            "Válasz": "6"
+        },
+        {
+            "Kérdés": "Hogyan nevezzük azt a számot, amely a legkisebb közös többszöröse két számnak?",
+            "Válasz": "Legkisebb közös többszörös (LKKT)"
+        },
+        {
+            "Kérdés": "Mi a háromszög szögeinek összege?",
+            "Válasz": "180 fok"
+        },
+        {
+            "Kérdés": "Hogyan számoljuk ki a kör területét?",
+            "Válasz": "A területet úgy számoljuk, hogy a sugár négyzetét megszorozzuk π-val"
+        },
+        {
+            "Kérdés": "Mi a különbség az egész számok és a tört számok között?",
+            "Válasz": "Az egész számok nem tartalmaznak tört részt, míg a tört számoknak van tizedes vagy tört része"
+        },
+        {
+            "Kérdés": "Mi a 45°-os szög szinusza?",
+            "Válasz": "√2 / 2"
+        },
+        {
+            "Kérdés": "Hogyan számoljuk ki a térfogatot egy kocka esetében?",
+            "Válasz": "A térfogatot úgy számoljuk, hogy az oldal hosszát háromszorozzuk meg (oldal³)"
+        },
+        {
+            "Kérdés": "Mi a különbség a reláció és a függvény között?",
+            "Válasz": "A reláció két halmaz között lévő kapcsolatot jelent, míg a függvény egy olyan speciális reláció, ahol minden bemeneti értékhez egyetlen kimeneti érték tartozik"
+        },
+        {
+            "Kérdés": "Mi az alapértelmezett számrendszer a számítógépekben?",
+            "Válasz": "A kettes számrendszer (bináris számrendszer)"
+        }
+    ],
+    "Irodalom": [
+        {
+            "Kérdés": "Ki írta a \"János vitéz\" című művet?",
+            "Válasz": "Petőfi Sándor"
+        },
+        {
+            "Kérdés": "Mi a különbség a mese és a regény között?",
+            "Válasz": "A mese általában fiktív és tanulságos történet, míg a regény hosszabb és összetettebb történet, ami gyakran a valóságot tükrözi"
+        },
+        {
+            "Kérdés": "Ki volt a \"Pál utcai fiúk\" című könyv főszereplője?",
+            "Válasz": "Nemecsek Ernő"
+        },
+        {
+            "Kérdés": "Mi a jelentése a \"szimbolizmus\" irodalmi irányzatnak?",
+            "Válasz": "Az irodalmi szimbolizmus a művekben az érzéseket és eszméket szimbólumokkal, jelképekkel fejezi ki"
+        },
+        {
+            "Kérdés": "Miért fontos a \"képzeletbeli világok\" létezése az irodalomban?",
+            "Válasz": "Mert segítenek elgondolkodtatni az olvasót, és szórakoztatva tanítanak"
+        },
+        {
+            "Kérdés": "Mi az, ami összeköti az elbeszélés és a regény műfaját?",
+            "Válasz": "Mindkettő történetmesélést tartalmaz, de a regény hosszabb és bonyolultabb"
+        },
+        {
+            "Kérdés": "Milyen stílust képvisel Kosztolányi Dezső?",
+            "Válasz": "A modernizmus és az impreszionizmus stílusait ötvözi"
+        },
+        {
+            "Kérdés": "Milyen művet írt Móricz Zsigmond?",
+            "Válasz": "\"Az iskolás fiú\" és \"Légy jó mindhalálig\""
+        },
+        {
+            "Kérdés": "Mi az irodalom szerepe a társadalomban?",
+            "Válasz": "Segít megérteni az emberi érzelmeket és társadalmi problémákat, miközben szórakoztat is"
+        },
+        {
+            "Kérdés": "Mi a \"nemzeti irodalom\" fogalma?",
+            "Válasz": "Az irodalom, amely a nemzet történelmét, kultúráját és nyelvét tükrözi"
+        }
+    ],
+    "Művészetek": [
+        {
+            "Kérdés": "Mi a különbség a festészet és a szobrászat között?",
+            "Válasz": "A festészet a képek létrehozására összpontosít, míg a szobrászat háromdimenziós műalkotásokat hoz létre"
+        },
+        {
+            "Kérdés": "Miért fontos a zene az emberi kultúrában?",
+            "Válasz": "Mert kifejezi az érzelmeket, összekapcsolja az embereket, és szórakoztat"
+        },
+        {
+            "Kérdés": "Ki volt a \"Mona Lisa\" festője?",
+            "Válasz": "Leonardo da Vinci"
+        },
+        {
+            "Kérdés": "Mi a különbség az absztrakt és a realizmus festészet között?",
+            "Válasz": "Az absztrakt festészet az érzéseket és ötleteket kifejező stílus, míg a realizmus a valóság pontos másolására törekszik"
+        },
+        {
+            "Kérdés": "Mi a szimfonikus zene?",
+            "Válasz": "Olyan zeneművek, amelyek nagy zenekarra, több hangszercsoport összjátékára építenek"
+        },
+        {
+            "Kérdés": "Mi a balett műfaja?",
+            "Válasz": "A tánc műfaja, amely a test kifejező mozdulataival ad át érzelmeket és történeteket"
+        },
+        {
+            "Kérdés": "Ki festette a \"Csillagos éj\" című híres képet?",
+            "Válasz": "Vincent van Gogh"
+        },
+        {
+            "Kérdés": "Mi a festészet célja?",
+            "Válasz": "A világ érzékelésének és érzelmi reakcióinak kifejezése vizuális formában"
+        },
+        {
+            "Kérdés": "Mi a különbség a grafika és a festészet között?",
+            "Válasz": "A grafika a vonal és a szín erőteljes használatára épít, míg a festészet inkább a színek és textúrák különböző technikáit alkalmazza"
+        },
+        {
+            "Kérdés": "Melyik művészeti ág foglalkozik a szobrászattal?",
+            "Válasz": "A háromdimenziós művészetekhez tartozik, és a szobrászat a legfontosabb formája"
+        }
+    ]
+}
