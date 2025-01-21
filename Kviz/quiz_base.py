@@ -55,6 +55,6 @@ def start_quiz(questions, num_questions=5):
 # Load questions from JSON
 
 # Start the quiz
-if __name__ == "__main__":
+# if __name__ == "__main__":
     questions = load_questions("questions.json")
     start_quiz(questions)
