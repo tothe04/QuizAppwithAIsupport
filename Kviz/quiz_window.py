@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import random
 import huspacy
 from quiz_base import load_questions
@@ -14,6 +15,12 @@ selected_questions = []
 # Initialize huspacy for Hungarian tokenization
 nlp = huspacy.load()
 
+# Styling constants
+FONT_LARGE = ("Arial", 14)
+FONT_MEDIUM = ("Arial", 12)
+FONT_SMALL = ("Arial", 10)
+PAD = 10
+
 def start_quiz():
     """Initializes the quiz with 5 random questions."""
     global selected_questions, current_question, score
@@ -26,13 +33,26 @@ def start_quiz():
     selected_questions = random.sample(all_questions, min(5, len(all_questions)))
 
     # Update the first question
-    label_question.config(text=selected_questions[current_question]["Kérdés"])
+    #label_question.config(text=selected_questions[current_question]["Kérdés"])
+    update_question()
     label_result.config(text="")
     entry.delete(0, tk.END)
 
+    # Show input and button
+    entry.pack(pady=PAD)
+    button_next.pack(pady=PAD)
+    button_restart.pack_forget()
+
+
+def update_question():
+    """Updates the question label."""
+    question = selected_questions[current_question]["Kérdés"]
+    label_question.config(text=f"Kérdés {current_question + 1}/{len(selected_questions)}:\n{question}")
+
+
 
 def next_question():
-    """Handles the next question logic in the quiz."""
+    """Scoring and stepping to the next question."""
     global current_question, score
 
     # Get user answer
@@ -45,7 +65,7 @@ def next_question():
     correct_answer = selected_questions[current_question]["Válasz"]
     correct_doc = nlp(correct_answer)
 
-    # Print the tokens (for debugging or processing purposes)
+    # Print the tokens
     user_tokens = [token.text.lower() for token in user_doc]
     correct_tokens = [token.text.lower() for token in correct_doc]
     print("User's Answer Tokenized:", user_tokens)
@@ -55,49 +75,61 @@ def next_question():
     common_tokens = set(user_tokens).intersection(set(correct_tokens))
     similarity_ratio = len(common_tokens) / len(correct_tokens) if correct_tokens else 0
 
-    # Print the similarity ratio (for debugging)
     print("Similarity Ratio:", similarity_ratio)
 
-    # Define a threshold for correct answer (e.g., 0.7 similarity)
+    # Define a threshold for correct answer
     if similarity_ratio > 0.5:
-        label_result.config(text="Helyes!", fg="green")
+        label_result.config(text="Helyes!", style="Success.TLabel")
         score += 1
     else:
-        label_result.config(text=f"Helytelen! Helyes válasz: {correct_answer}", fg="red")
+        label_result.config(text=f"Helytelen! Helyes válasz: {correct_answer}", style="Error.TLabel")
 
     # Move to the next question or end the quiz
     current_question += 1
     if current_question < len(selected_questions):
-        label_question.config(text=selected_questions[current_question]["Kérdés"])
+        update_question()
+        #label_question.config(text=selected_questions[current_question]["Kérdés"])
         entry.delete(0, tk.END)
     else:
-        label_question.config(text=f"Kvíz vége! Eredmény: {score}/{len(selected_questions)}")
+        label_question.config(
+            text=f"Kvíz vége! Eredmény: {score}/{len(selected_questions)}"
+        )
         entry.pack_forget()
-        button.pack_forget()
-        restart_button.pack(pady=10)
+        button_next.pack_forget()
+        button_restart.pack(pady=PAD)
 
 
-# Tkinter GUI setup
-root = tk.Tk()
-root.title("Kvíz Alkalmazás")
+if __name__ == "__main__":
 
-label_question = tk.Label(root, text="", font=("Arial", 14))
-label_question.pack(pady=10)
+    # Tkinter GUI setup
+    root = tk.Tk()
+    root.title("Kvíz Alkalmazás")
+    root.geometry("400x300")
 
-entry = tk.Entry(root)
-entry.pack(pady=10)
+    style = ttk.Style()
+    style.configure("ResultLabel.TLabel", font=("Arial", 12))
 
-button = tk.Button(root, text="Tovább", command=next_question)
-button.pack(pady=10)
 
-label_result = tk.Label(root, text="")
-label_result.pack(pady=10)
+    frame_main = ttk.Frame(root, padding=PAD)
+    frame_main.pack(fill=tk.BOTH, expand=True)
 
-restart_button = tk.Button(root, text="Újraindítás", command=start_quiz)
-restart_button.pack(pady=10)
-restart_button.pack_forget()
+    label_question = ttk.Label(frame_main, text="", font=FONT_LARGE, wraplength=280, anchor="center")
+    label_question.pack(pady=PAD)
 
-# Start the quiz
-start_quiz()
+    entry = ttk.Entry(frame_main, font=FONT_MEDIUM, justify="center")
+    entry.pack(pady=PAD)
 
-root.mainloop()
+    button_next = ttk.Button(frame_main, text="Tovább", command=next_question)
+    button_next.pack(pady=PAD)
+
+    label_result = ttk.Label(frame_main, text="", font=FONT_MEDIUM, wraplength=280, anchor="center")
+    label_result.pack(pady=PAD)
+
+    button_restart = tk.Button(root, text="Újraindítás", command=start_quiz)
+    button_restart.pack(pady=PAD)
+    button_restart.pack_forget()
+
+    # Start the quiz
+    start_quiz()
+
+    root.mainloop()
