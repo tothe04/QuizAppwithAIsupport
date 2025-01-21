@@ -15,7 +15,7 @@ for token in doc:
     print(f"{token.text} - {token.pos_}")
 
 def is_similar(ans1, ans2):
-    return SequenceMatcher(None, ans1.lower(), ans2.lower()).ratio() > 0.7
+    return SequenceMatcher(None, ans1.lower(), ans2.lower()).ratio() > 0.5
 
 
 def load_questions(file_path):
