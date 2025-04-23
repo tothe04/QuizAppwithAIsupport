@@ -32,8 +32,16 @@ def start_quiz():
     # Reset quiz state
     current_question = 0
     score = 0
-    responses = []
     selected_questions = random.sample(all_questions, min(5, len(all_questions)))
+    responses = [
+        {
+            "question": q["Kérdés"],
+            "user_answer": None,
+            "correct_answer": q["Válasz"],
+            "correct": None
+        }
+        for q in selected_questions
+    ]
 
     # Display first question
     update_question()
@@ -49,17 +57,50 @@ def start_quiz():
 def update_question():
     """Updates the question label."""
     global current_question, selected_questions
-    tk_textbox.delete("1.0", tk.END)
-    label_result.grid_remove()
     button_next.grid_remove()
+    button_prev.grid_remove()
 
-    if current_question < len(selected_questions):
-        question = selected_questions[current_question]["Kérdés"]
-        label_question.configure(text=f"Kérdés {current_question + 1}/{len(selected_questions)}:\n{question}")
-        button_check.grid(row=0, column=0, pady=PAD)
+    q_data = responses[current_question]
+    label_question.configure(text=f"Kérdés {current_question + 1}/{len(responses)}:\n{q_data['question']}")
+
+    tk_textbox.delete("1.0", tk.END)
+    if q_data["user_answer"] is not None:
+        tk_textbox.insert("1.0", q_data["user_answer"])
+
+    if q_data["correct"] is not None:
+        if q_data["correct"]:
+            label_result.configure(text="Helyes!", text_color="green")
+        else:
+            label_result.configure(text=f"Helytelen! Helyes válasz: {q_data['correct_answer']}", text_color="red")
+            label_result.grid(row=3, column=0, pady=PAD, padx=PAD, sticky="ew")
+
+        if current_question > 0:
+            button_prev.grid(row=0, column=0, pady=PAD, padx=PAD)
+        button_next.grid(row=0, column=1, pady=PAD, padx=PAD)
+
     else:
-        threading.Thread(target=end_quiz, daemon=True).start()  # Generate feedback in a separate thread
+        button_check.grid(row=0, column=0, pady=PAD)
+        label_result.grid_remove()
 
+def previous_question():
+    global current_question
+    if current_question > 0:
+        current_question -= 1
+        update_question()
+
+def next_question():
+    global current_question
+    if current_question < len(responses) - 1:
+        current_question += 1
+        update_question()
+    else:
+        tk_textbox.grid_remove()
+        button_next.grid_remove()
+        button_prev.grid_remove()
+        button_check.grid_remove()
+        label_result.grid_remove()
+        end_quiz()
+        # threading.Thread(target=end_quiz, daemon=True).start()  # Generate feedback in a separate thread
 
 def check_answer():
     """Runs AI validation in a separate thread to prevent UI freezing."""
@@ -79,12 +120,8 @@ def validate_answer():
     # AI-based validation
     is_correct = is_answer_correct(user_answer, correct_answer)
 
-    responses.append({
-        "question": selected_questions[current_question]["Kérdés"],
-        "user_answer": user_answer,
-        "correct_answer": correct_answer,
-        "correct": is_correct
-    })
+    responses[current_question]["user_answer"] = user_answer
+    responses[current_question]["correct"] = is_correct
 
     if is_correct:
         label_result.configure(text="Helyes!", text_color="green")
@@ -92,25 +129,20 @@ def validate_answer():
     else:
         label_result.configure(text=f"Helytelen! Helyes válasz: {correct_answer}", text_color="red")
 
-
-    # Move to the next question or end quiz
-    button_next.grid(row=0, column=1, pady=PAD)
-    current_question += 1
-
+    if current_question > 0:
+        button_prev.grid(row=0, column=0, pady=PAD, padx=PAD)
+    button_next.grid(row=0, column=1, pady=PAD, padx=PAD)
 
 def end_quiz():
     """Ends the quiz and generates AI feedback."""
     label_question.configure(text=f"Kvíz vége! Eredmény: {score}/{len(selected_questions)}")
-    tk_textbox.grid_remove()
-    button_next.grid_remove()
-    button_check.grid_remove()
-    label_result.grid_remove()
 
     # Display feedback loading message
     label_feedback_text.configure(text="MI visszajelzés generálása...", text_color="black")
+    frame_feedback.configure(width=450, height=200, fg_color="gray",
+                             border_width=2, border_color="black", corner_radius=20)
     frame_feedback.grid(row=1, column=0, pady=PAD)
 
-    # Generate AI feedback
     feedback = generate_feedback(responses)
 
     # Update feedback label
@@ -148,13 +180,17 @@ if __name__ == "__main__":
     button_check = ctk.CTkButton(frame_buttons, text="Ellenőrzés", command=check_answer, width=100)
     button_check.grid(row=0, column=0, padx=PAD)
 
-    button_next = ctk.CTkButton(frame_buttons, text="Tovább", command=update_question, width=100)
+    button_prev = ctk.CTkButton(frame_buttons, text="Vissza", command=previous_question, width=100)
+    button_prev.grid_remove()
+
+    button_next = ctk.CTkButton(frame_buttons, text="Tovább", command=next_question, width=100)
     button_next.grid_remove()
 
     label_result = ctk.CTkLabel(frame_main, text="", font=FONT_MEDIUM, wraplength=400, anchor="center")
     label_result.grid(row=3, column=0, pady=PAD, padx=PAD, sticky="ew")
 
-    frame_feedback = ctk.CTkScrollableFrame(frame_main, width=450, height=200)
+    frame_feedback = ctk.CTkFrame(frame_main, width=450, height=200, fg_color="gray",
+                                  border_width=2, border_color="black", corner_radius=20)
     frame_feedback.grid_remove()
 
     label_feedback_text = ctk.CTkLabel(frame_feedback, text="", font=FONT_MEDIUM, wraplength=400, anchor="center")
