@@ -2,12 +2,12 @@ import os
 import huspacy
 import json
 import random
-from langchain_google_genai import GoogleGenerativeAI
+import hu_core_news_lg
 import google.generativeai as genai
 
 nlp = huspacy.load()
+npl = hu_core_news_lg.load()
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
-# nlp = spacy.load("hu_core_ud_lg")
 
 def validate_with_huspacy(ans1, ans2, threshold=0.6):
     """Check if two answers are similar using HuSpaCy NLP embeddings."""
@@ -35,6 +35,10 @@ def validate_with_gemini(user_answer, correct_answer, model_name="gemini-2.0-fla
 
 def is_answer_correct(user_answer, correct_answer):
     """Use multiple validation methods and apply majority voting."""
+
+    if user_answer is None or user_answer == "":
+        return False
+
     validations = [
         validate_with_huspacy(user_answer, correct_answer),
         validate_with_gemini(user_answer, correct_answer, "gemini-2.0-flash"),
@@ -56,7 +60,9 @@ def generate_feedback(responses):
         prompt += (f"Considered the answer: {"correct" if item["correct"] else "false"} "
                    f"based on the db answer and two ai models.\n\n")
 
-    prompt += "Give a brief explanation of common mistakes and suggestions for improvement. Please answer in Hungarian."
+    prompt += ("Give a short (one paragraph), brief explanation of common mistakes and suggestions for improvement. "
+               "Please answer in Hungarian. And format the text with new lines, logically split into paragraphs, and "
+               "justify the lines too, please.")
 
     model = genai.GenerativeModel(model_name="gemini-2.0-flash-lite")
     response = model.generate_content(prompt)
