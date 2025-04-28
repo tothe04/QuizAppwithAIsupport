@@ -139,20 +139,24 @@ def end_quiz():
 
     # Display feedback loading message
     label_feedback_text.configure(text="MI visszajelzés generálása...", text_color="black")
-    frame_feedback.configure(width=450, height=200, fg_color="gray",
-                             border_width=2, border_color="black", corner_radius=20)
+    frame_feedback.configure(width=450, height=180, corner_radius=5,
+                             scrollbar_fg_color="lightgray", scrollbar_button_color="white")
     frame_feedback.grid(row=1, column=0, pady=PAD)
 
-    feedback = generate_feedback(responses)
-
-    # Update feedback label
-    label_feedback_text.configure(text=f"📢 MI visszajelzés a teljesítmény alapján:\n\n{feedback}",
-                                  text_color="black",
-                                  width=350)
+    threading.Thread(target=show_feedback, daemon=True).start()  # Generate feedback in a separate thread
 
     # Enable the restart button after feedback loads
     button_restart.configure(state=tk.NORMAL)
     button_restart.grid(row=2, column=0, pady=PAD)
+
+def show_feedback():
+    feedback = generate_feedback(responses)
+
+    # Update feedback label
+    label_feedback_text.configure(text=f"📢 MI visszajelzés a teljesítmény alapján:\n\n\n{feedback}",
+                              text_color="black",
+                              width=350)
+
 
 if __name__ == "__main__":
     # Tkinter GUI setup
@@ -189,14 +193,13 @@ if __name__ == "__main__":
     label_result = ctk.CTkLabel(frame_main, text="", font=FONT_MEDIUM, wraplength=400, anchor="center")
     label_result.grid(row=3, column=0, pady=PAD, padx=PAD, sticky="ew")
 
-    frame_feedback = ctk.CTkFrame(frame_main, width=450, height=200, fg_color="gray",
-                                  border_width=2, border_color="black", corner_radius=20)
+    frame_feedback = ctk.CTkScrollableFrame(frame_main, width=450, height=180, corner_radius=5)
     frame_feedback.grid_remove()
 
     label_feedback_text = ctk.CTkLabel(frame_feedback, text="", font=FONT_MEDIUM, wraplength=400, anchor="center")
     label_feedback_text.pack(fill="both", expand=True)
 
-    button_restart = ctk.CTkButton(frame_main, text="Újraindítás", command=start_quiz, width=20)
+    button_restart = ctk.CTkButton(frame_main, text="Újraindítás", command=start_quiz, width=100)
     button_restart.grid(row=5, column=0, pady=PAD)
 
     # Start the quiz
