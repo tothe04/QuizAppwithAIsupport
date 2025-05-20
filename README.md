@@ -1,8 +1,11 @@
 # QuizAppwithAIsupport
 
-***This is a simple quiz application built using Python with the Tkinter and CustomTkinter libraries for the graphical 
-user interface. The quiz selects random questions from a JSON file and allows users to answer them. After completing 
-the quiz, an AI-based feedback system provides an analysis of the user's performance.***
+***This is a simple quiz application built using pure Python with the Tkinter and CustomTkinter libraries for the 
+graphical user interface, and HuSpaCy for the NLP processes. The quiz selects random questions from a JSON file and 
+allows users to answer them with free text responses. The responses are validated 3 different times, with NLP 
+algorithms and with two LLMs. Users can step backward and forward between questions to see their previous answers. 
+After completing the quiz, an AI-based feedback system provides an analysis of the user's performance using Google 
+Gemini.***
 
 ## Table of contents
 
